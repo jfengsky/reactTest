@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var babel = require('gulp-babel');
 var sourcemaps = require('gulp-sourcemaps');
 var react = require('gulp-react');
 
@@ -10,6 +11,13 @@ gulp.task('default', function () {
         .pipe(gulp.dest('dist'));
 });
 
+gulp.task('es6', function () {
+    return gulp.src('demoes6.jsx')
+        .pipe(sourcemaps.init())
+        .pipe(react())
+        .pipe(babel())
+        .pipe(gulp.dest('dist'));
+});
 
 //var gulp = require('gulp');
 //var react = require('gulp-react');
