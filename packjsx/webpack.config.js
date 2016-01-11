@@ -4,6 +4,8 @@ var config = {
   entry:{
     "entry": path.resolve(__dirname, 'app/main.js'),
     "test": path.resolve(__dirname, 'app/test.js'),
+    "test2": path.resolve(__dirname, 'app/test2.jsx'),
+    "app": path.resolve(__dirname, 'app/app.jsx'),
   },
   output: {
     path: path.resolve(__dirname, 'build'),

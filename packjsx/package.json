@@ -27,6 +27,7 @@
     "webpack-dev-server": "^1.11.0"
   },
   "dependencies": {
+    "jasmine-react-helpers": "^0.2.2",
     "lodash": "~3.10.1",
     "react-kendo": "~0.13.11"
   }
