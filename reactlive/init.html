@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="lib/react.js"></script>
+  <script src="lib/JSXTransformer.js"></script>
+  <script src="lib/react-dom.js"></script>
+</head>
+<body>
+<div id="demo"></div>
+<script type="text/jsx">
+var count = 0;
+var style = {
+  color: "red",
+  border: "1px solid #f00"
+}
+var HelloWorld = React.createClass({
+  getDefaultProps: function(){
+    console.log("getDefaultProps:1");
+    return {
+      name: "tom",
+      myCount: count
+    }
+  },
+  getInitialState: function(){
+    console.log("getInitialState:2");
+    return {
+      myCount: count++,
+      ready: false
+    }
+  },
+  componentWillMount: function(){
+    console.log("componentWillMount:3");
+    this.setState({
+      ready: true
+    })
+  },
+  render: function(){
+    console.log("render: 4");
+    return <p ref="childp">Hello, {
+      (function(obj){
+        if(obj.props.name){
+          return obj.props.name
+        } else {
+          return "World"
+        }
+      })(this)
+    }
+    </p>
+  },
+  componentDidMount: function(){
+    console.log("componentDidMount:5");
+  }
+})
+// ReactDOM.render(<HelloWorld style={style} />, document.getElementById('demo'))
+ReactDOM.render(<div style={style}><HelloWorld /></div>, document.getElementById('demo'))
+</script>
+</body>
+</html>
